@@ -88,7 +88,7 @@
     <div id="results">
       <p>Down payment amount: <span id="dpa"></span></p>
       <p>Amount to be paid monthly: <span id="monthlyPayment"></span></p>
-      <p>Total Balance Remaining: <span id="amountRemaining"></span> (<span id="interestRate"></span>% Interest Rate added on Remaining Amount)</p>
+      <p>Total Balance Remaining: <span id="amountRemaining"></span> (Interest Rate added on Remaining Amount)</p>
     </div>
 
     <script>
@@ -110,8 +110,6 @@
           monthlyPayment.toFixed(2);
         document.getElementById("amountRemaining").textContent =
           amountRemaining.toFixed(2);
-        document.getElementById("interestRate").textContent =
-          interestRate.toFixed(2);
 
         // Show the results
         document.getElementById("results").style.display = "block";
