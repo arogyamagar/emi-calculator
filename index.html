@@ -102,12 +102,16 @@
 
         const dpa = (total * dpp) / 100;
         const interestAmount = (total - dpa) * (interestRate / 100);
-        const amountRemaining = (total-dpa)+ interestAmount;
+        const amountRemaining = (total-dpa) + interestAmount;
         const monthlyPayment = amountRemaining/interval;
 
         document.getElementById("dpa").textContent = dpa.toFixed(2);
         document.getElementById("monthlyPayment").textContent =
           monthlyPayment.toFixed(2);
+        document.getElementById("amountRemaining").textContent =
+          amountRemaining.toFixed(2);
+        document.getElementById("interestRate").textContent =
+          interestRate.toFixed(2);
 
         // Show the results
         document.getElementById("results").style.display = "block";
