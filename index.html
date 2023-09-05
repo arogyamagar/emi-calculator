@@ -88,6 +88,7 @@
     <div id="results">
       <p>Down payment amount: <span id="dpa"></span></p>
       <p>Amount to be paid monthly: <span id="monthlyPayment"></span></p>
+      <p>Total Balance Remaining: <span id="amountRemaining"></span> (<span id="interestRate"></span>% Interest Rate added on Remaining Amount)</p>
     </div>
 
     <script>
@@ -101,7 +102,8 @@
 
         const dpa = (total * dpp) / 100;
         const interestAmount = (total - dpa) * (interestRate / 100);
-        const monthlyPayment = (total - dpa) / ((interval - 1) + interestAmount);
+        const amountRemaining = (total-dpa)+ interestAmount;
+        const monthlyPayment = amountRemaining/interval;
 
         document.getElementById("dpa").textContent = dpa.toFixed(2);
         document.getElementById("monthlyPayment").textContent =
