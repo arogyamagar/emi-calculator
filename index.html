@@ -1,95 +1,70 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EMI Calculator</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
-        text-decoration: none;
-        margin: 0;
-        padding: 0;
-      }
-
-      h1 {
-        text-align: center;
-        margin-top: 20px;
-      }
-
-      form {
-        background-color: #fff;
-        border-radius: 5px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        padding: 80px;
-        max-width: 400px;
-        margin: 0 auto;
-      }
-
-      label {
-        margin-bottom: 20px;
-        font-weight: bold;
-      }
-
-      input {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 10px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-      }
-
-      input[type="button"] {
-        margin-top: 20px;
-        width: 105%;
-        background-color: #007bff;
-        color: #fff;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-      }
-
-      input[type="button"]:hover {
-        background-color: #0056b3;
-      }
-
-      #results {
-        background-color: #fff;
-        border-radius: 5px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        padding: 80px;
-        max-width: 400px;
-        margin: 20px auto;
-        display: none;
-      }
-
-      p {
-        font-weight: bold;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
+    <!-- background animations -->
+    <div class="area" >
+      <ul class="circles">
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     </ul>
+     </div>
+
+     <!-- main form and logics -->
+    <div class="foreground">
     <h1>EMI Calculator</h1>
     <form id="loanForm">
-      <label for="total">Enter the total amount:</label>
+      <label for="total">Enter Total Amount</label>
       <input type="number" id="total" step="0.01" required /><br />
 
-      <label for="dpp">Enter the downpayment percent:</label>
-      <input type="number" id="dpp" required /><br />
+      <label for="dpp">Enter Downpayment Percent</label>
+      <input type="number" id="dpp" max="100" required /><br />
 
-      <label for="interval">Enter the interval (in months):</label>
+      <label for="interval">Enter Interval (in months)</label>
       <input type="number" id="interval" required /><br />
 
-      <label for="interestRate">Enter the interest rate:</label>
-      <input type="number" id="interestRate" step="0.01" required /><br />
+      <label for="interestRate">Enter Interest Rate</label>
+      <input type="number" id="interestRate" step="0.01" max="100" required /><br />
 
       <input type="button" value="Calculate" onclick="calculateLoan()" />
     </form>
 
     <div id="results">
-      <p>Down payment amount: <span id="dpa"></span></p>
+      <!-- <p>Down payment amount <span id="dpa"></span></p>
       <p>Amount to be paid monthly: <span id="monthlyPayment"></span></p>
-      <p>Total Balance Remaining: <span id="amountRemaining"></span> (Interest Rate added on Remaining Amount)</p>
+      <p>Total Balance Remaining: <span id="amountRemaining"></span> (Interest Rate added on Remaining Amount)</p> -->
+      <table>
+        <tr>
+          <th>Down payment amount</th>
+          <td><span id="dpa"></span></td>
+        </tr>
+        <tr>
+          <th>Amount to be paid monthly</th>
+          <td><span id="monthlyPayment"></span></td>
+        </tr>
+        <tr>
+          <th>Total Balance Remaining</th>
+          <td><span id="amountRemaining"></span> (Interest Rate added on Remaining Amount)</td>
+        </tr>
+      </table>
+      
+    
     </div>
+  </div>
+
 
     <script>
       function calculateLoan() {
